@@ -19,15 +19,6 @@ function draw() {
   background(0);  
   bullet.velocityX = speed;
 
-  function hasCollided(lbullet , lwall) {
-    bulletRightEdge= lbullet.x + lbullet.width;
-    wallLeftEdge = lwall.x;
-    if (bulletRightEdge>=wallLeftEdge){
-      return true
-    }
-    return false;
-  }
-
   if(hasCollided(bullet , wall)) {
 
     bullet.velocityX = 0;
@@ -48,4 +39,13 @@ drawSprites();
 textSize(20);
 fill("red");
 text("damage:"+ damage,1200,380);
+}
+
+function hasCollided(lbullet , lwall) {
+  bulletRightEdge= lbullet.x + lbullet.width;
+  wallLeftEdge = lwall.x;
+  if (bulletRightEdge>=wallLeftEdge){
+    return true
+  }
+  return false;
 }
